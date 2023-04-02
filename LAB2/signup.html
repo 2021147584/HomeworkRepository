@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SignUp</title>
+        <link rel="stylesheet" type="text/css" href="main.css">
+    </head>
+
+    <body>
+        <h1><span class="title" onclick="location.href='login.html'">Welcome to Jungwoo Ahn's Shop</span></h1>
+        <p>
+            <span class="sign_in" id="box1" onclick="location.href='login.html'">Sign In</span>
+            <span class="sign_up" id="box2" onclick="location.href='signup.html'">Sign Up</span>
+        </p>
+        <hr>
+
+        <p>Redirect to Login Page: <button class="button" type="button" onclick="location.href='login.html'">Log In</button></p>
+        <form method="get" action="">
+            <p>Name: <input type="text" name="name" placeholder="Enter Name" autofocus required></p>
+            <p>
+                Choose Gender: 
+                <label><input type="radio" name="gender">Male</label>
+                <label><input type="radio" name="gender">Female</label>
+            </p>
+            <p>
+                Choose Interests: 
+            <label><input type="checkbox" name="interests" value="fe"> Frontend</label>
+            <label><input type="checkbox" name="interests" value="be"> Backend</label>
+            <label><input type="checkbox" name="interests" value="uiux"> UI/UX</label>
+            
+
+            </p>
+            <p>Birth Date: <input type="date" name="date" ></p>
+            <p>Phone Number: <input type="tel" name="num" pattern="\d{3}-\d{4}-\d{4}" placeholder="010-xxxx-xxxx"></p>
+            <p>Grade: <input type="number" name="grade" min="1" max="4" step="1" value="2" required></p>
+            <P>ID: <input class="text" type="email" name="id" placeholder="Enter E-Mail" required></P>
+            <P>Password: <input type="password" name="password" placeholder="Enter Password" required></P>
+            <P>Confirm Password: <input type="password" name="password" placeholder="Confirm your Password" required></P>
+            <p>
+                <input id="reset_button" class="button" type="reset" value="Reset">
+                <input id="signin_button" class="button" type="submit" value="Sign In">
+            </p>
+        </form>
+    </body>
+</html>
+    

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+body {
+    background-color: rgb(176, 194, 211);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+p {
+    font-size: 10pt;
+    color: black;
+}
+
+button, input.button {
+    text-align: center;
+    margin-left: 0.3em;
+    padding: 0.5em;
+    border-color: black;
+    border-width: thin;
+    margin-right: 0.3em;
+    color: rgb(12, 8, 8);
+    background-color: beige;
+}
+
+#reset_button {
+    background-color: rgb(247, 134, 134);
+}
+
+#signin_button {
+    background-color: azure;
+}
+
+
+#box1, #box2 {
+    margin: 3px;    
+}
+
+#box2 {
+    position: relative;
+    left: 20px;
+}
+
+hr {
+    border: 0;
+    height: 3px;
+    background: rgb(10, 8, 8);
+}
+
+.title {
+    font-size: 40pt;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.sign_in, .sign_up {
+    font-size: 20pt;
+    color: black;
+    cursor: pointer;
+}
+
+
+input {
+    width: fit-content;
+    height: fit-content;
+    padding-right: 1em;
+    margin-left: 0.1em;
+}
+
