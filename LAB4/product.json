@@ -1,0 +1,39 @@
+[
+    {
+        "idx": 0,
+        "name": "Operating System",
+        "price": 40000,
+        "image": "Images/OS_Book.jpeg",
+        "type": [
+            "cs", 
+        ]
+    },
+    {
+        "idx": 1,
+        "name": "Computer Architecture",
+        "price": 20000,
+        "image": "Images/CA_Book.jpeg",
+        "type": [
+            "cs"
+        ]
+    },
+    {
+        "idx": 2,
+        "name": "Deep Learning",
+        "price": 30000,
+        "image": "Images/DL_Book.jpeg",
+        "type": [
+            "ai", "cs"
+        ]
+    },
+    {
+        "idx": 3,
+        "name": "Linear Algebra",
+        "price": 2000,
+        "image": "Images/LA_Book.jpeg",
+        "type": [
+            "math", "cs"
+        ]
+    }
+
+]

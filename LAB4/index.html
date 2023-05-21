@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>mainpage</title>
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <script>
+          document.addEventListener("DOMContentLoaded", load);
+          let items = [];
+          let Items = [];
+          let Type = "all";
+          let sort_num = "none";
+          let text = "";
+          let itemArr = [];
+
+          function load() {
+            items = [];
+            fetch("product.json")
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                  var obj = {
+                    name: data[i].name,
+                    type: data[i].type,
+                    price: data[i].price,
+                    image: data[i].image,
+                  };
+                  items.push(obj);
+                }
+                Items = items;
+                itemArr = Items;
+                setContent();
+              });
+
+            function setContent() {
+                for (var i = 0; i < itemArr.length; i++) {
+                  var code =
+                    '<div class="Item"><button type="button" class="button"' +
+                    "onclick= show_details(" +
+                    itemArr[i].idx +
+                    ")>Click to see Details</button>" +
+                    '<img class="IMG" src="' +
+                    itemArr[i].image +
+                    'width="200" height="300">' +
+                    '<div class="Detail" id="' +
+                    itemArr[i].name +
+                    '">' +
+                    "</div></div>";
+                  document.getElementById("items_list").innerHTML += code;
+                }
+            }
+
+            function show_details(i) {
+                document.getElementById(items[i].name).innerHTML =
+                  items[i].name + "<br>" + items[i].price + " won" + items[i].type ;
+            }
+            
+            function set() {
+                Items = [];
+                for (let i = 0; i < items.length; i++) {
+                  if (Type != "all") {
+                    if (
+                      inclusion_check(text, items[i].name) &&
+                      items[i].type == Type
+                    ) {
+                      Items.push(items[i]);
+                    }
+                  } else {
+                    if (inclusion_check(text, items[i].name)) {
+                      Items.push(items[i]);
+                    }
+                  }
+                }
+                sort_items(sort_num);
+            }
+
+            function sort_items(value) {
+                if (value === "ascending") {
+                  let sortedItems = Items.sort((a, b) => a.price - b.price);
+                  Items = sortedItems;
+                  itemArr = Items;
+                  setContent();
+                } else if (value === "descending") {
+                  let sortedItems = Items.sort((a, b) => b.price - a.price);
+                  Items = sortedItems;
+                  itemArr = Items;
+                  setContent();
+                } else {
+                  itemArr = Items;
+                  setContent();
+                }
+              }
+
+
+            function inclusion_check(a1, a2) {
+                let b1 = a1.toLowerCase();
+                let b2 = a2.toLowerCase();
+                let inc = b2.includes(b1);
+                return inc;
+            }
+
+            function cat(value) {
+                Type = value;
+            }
+
+            function set_sort(value) {
+                sort_num = value;
+            }
+
+            function set_text(value) {
+                text = value;
+            }
+
+          
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1><span class="title" onclick="location.href='login.html'">Welcome to Ahn's Shop</span></h1>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="signin.html">Sign In</a>
+            <a href="signup.html">Sign Up</a>
+        </nav>
+        <hr>
+
+
+         <aside>
+                <form>
+                <div class="flexible_form">
+                    <div>
+                        <label for="type">Choose a type:</label>
+                        <select name="type" id="type" onchange="cat(value)">
+                            <option selected value="all">All</option>
+                            <option value="cs">cs</option>
+                            <option value="ai">ai</option>
+                            <option value="math">math</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="search_term">Enter search term:</label>
+                        <input name="keyword" id="keyword" type="text" placeholder="search" class="searchInput" onchange="set_text(value)">
+                    <div>
+                        <select name="sort" id="sort" onchange="sort_items(value)">
+                            <option selected value="none">none</option>
+                            <option value="ascending">ascending</option>
+                            <option value="descending">descending</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div>
+                        <button id="filter" type="button" onclick="set()">Filter Results</button>
+                    </div>
+                </div>
+                </form>
+            </aside>
+
+
+        <main> 
+            <div id="items_list" class="item"></div>
+
+            <section>
+                <div>
+                    <h2>
+                        Page Intro
+                    </h2>
+                    <p class="intro_paragraph">
+                        Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop 
+                        Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop 
+                        Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop 
+                        Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop 
+                        Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop 
+                        Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop Ahn's Shop
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <hr>
+        <footer>
+            <span>Contact</span>
+            <span>Tel: 010-5332-0721</span>
+            <span>E-Mail: jungwoo010721@gmail.com</span>
+        </footer>
+        
+    </body>
+</html>
+    
